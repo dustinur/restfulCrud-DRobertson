@@ -1,5 +1,5 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/character.css">
     </head>
 
     <body>
@@ -8,33 +8,33 @@
             <main>
                 <% if (prods.length > 0) { %>
                     <div class="grid">
-                        <% for (let product of prods) { %>
-                            <article class="card product-item">
+                        <% for (let character of prods) { %>
+                            <article class="card character-item">
                                 <header class="card__header">
-                                    <h1 class="product__title">
-                                        <%= product.title %>
+                                    <h1 class="character__name">
+                                        <%= character.name %>
                                     </h1>
                                 </header>
                                 <div class="card__image">
-                                    <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                                    <img src="<%= character.imageUrl %>" alt="<%= character.name %>">
                                 </div>
                                 <div class="card__content">
-                                    <h2 class="product__price">$
-                                        <%= product.price %>
+                                    <h2 class="character__classType">$
+                                        <%= character.classType %>
                                     </h2>
-                                    <p class="product__description">
-                                        <%= product.description %>
+                                    <p class="character__description">
+                                        <%= character.description %>
                                     </p>
                                 </div>
                                 <div class="card__actions">
-                                    <a href="/products/<%= product.id %>" class="btn">Details</a>
-                                    <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+                                    <a href="/characters/<%= character.id %>" class="btn">Details</a>
+                                    <%- include('../includes/add-to-cart.ejs', {character: character}) %>
                                 </div>
                             </article>
                             <% } %>
                     </div>
                     <% } else { %>
-                        <h1>No Products Found!</h1>
+                        <h1>No Characters Found!</h1>
                         <% } %>
             </main>
             <%- include('../includes/end.ejs') %>

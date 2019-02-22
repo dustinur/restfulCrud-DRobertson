@@ -10,7 +10,7 @@ class Character {
 
   save() {
     const db = getDb();
-    db.collection("characters")
+    return db.collection("characters")
       .insertOne(this)
       .then(result => {
         console.log(result);

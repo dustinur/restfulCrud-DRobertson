@@ -1,9 +1,9 @@
-const Character = require('../models/character');
+const Character = require("../models/character");
 
 exports.getAddCharacter = (req, res, next) => {
-  res.render('admin/edit-character', {
-    pageTitle: 'Add Character',
-    path: '/admin/add-character',
+  res.render("admin/edit-character", {
+    pageTitle: "Add Character",
+    path: "/admin/add-character",
     editing: false
   });
 };
@@ -13,17 +13,13 @@ exports.postAddCharacter = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  req.user
-    .createCharacter({
-      title: title,
-      price: price,
-      imageUrl: imageUrl,
-      description: description
-    })
+  const character = new character(name, classType, description, imageUrl);
+  character
+    .save()
     .then(result => {
       // console.log(result);
-      console.log('Created Character');
-      res.redirect('/admin/characters');
+      console.log("Created Character");
+      res.redirect("/admin/characters");
     })
     .catch(err => {
       console.log(err);

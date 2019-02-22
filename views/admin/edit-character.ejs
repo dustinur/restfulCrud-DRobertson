@@ -9,16 +9,16 @@
     <main>
         <form class="character-form" action="/admin/<% if (editing) { %>edit-character<% } else { %>add-character<% } %>" method="POST">
             <div class="form-control">
-                <label for="title">Title</label>
-                <input type="text" name="title" id="title" value="<% if (editing) { %><%= character.title %><% } %>">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="<% if (editing) { %><%= character.name %><% } %>">
             </div>
             <div class="form-control">
                 <label for="imageUrl">Image URL</label>
                 <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= character.imageUrl %><% } %>">
             </div>
             <div class="form-control">
-                <label for="price">Price</label>
-                <input type="number" name="price" id="price" step="0.01" value="<% if (editing) { %><%= character.price %><% } %>">
+                <label for="classType">Class</label>
+                <input type="text" name="classType" id="classType" value="<% if (editing) { %><%= character.classType %><% } %>">
             </div>
             <div class="form-control">
                 <label for="description">Description</label>

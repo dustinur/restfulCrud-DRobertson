@@ -11,16 +11,16 @@
                         <% for (let character of chars) { %>
                             <article class="card character-item">
                                 <header class="card__header">
-                                    <h1 class="character__title">
-                                        <%= character.title %>
+                                    <h1 class="character__name">
+                                        <%= character.name %>
                                     </h1>
                                 </header>
                                 <div class="card__image">
-                                    <img src="<%= character.imageUrl %>" alt="<%= character.title %>">
+                                    <img src="<%= character.imageUrl %>" alt="<%= character.name %>">
                                 </div>
                                 <div class="card__content">
-                                    <h2 class="character__price">$
-                                        <%= character.price %>
+                                    <h2 class="character__classType">
+                                        <%= character.classType %>
                                     </h2>
                                     <p class="character__description">
                                         <%= character.description %>
