@@ -35,10 +35,10 @@ exports.postAddCharacter = (req, res, next) => {
 //   if (!editMode) {
 //     return res.redirect('/');
 //   }
-//   const prodId = req.params.characterId;
+//   const charId = req.params.characterId;
 //   req.user
-//     .getCharacters({ where: { id: prodId } })
-//     // character.findById(prodId)
+//     .getCharacters({ where: { id: charId } })
+//     // character.findById(charId)
 //     .then(characters => {
 //       const character = characters[0];
 //       if (!character) {
@@ -55,12 +55,12 @@ exports.postAddCharacter = (req, res, next) => {
 // };
 
 // exports.postEditCharacter = (req, res, next) => {
-//   const prodId = req.body.characterId;
+//   const charId = req.body.characterId;
 //   const updatedTitle = req.body.title;
 //   const updatedPrice = req.body.price;
 //   const updatedImageUrl = req.body.imageUrl;
 //   const updatedDesc = req.body.description;
-//   character.findById(prodId)
+//   character.findById(charId)
 //     .then(character => {
 //       character.title = updatedTitle;
 //       character.price = updatedPrice;
@@ -80,7 +80,7 @@ exports.postAddCharacter = (req, res, next) => {
 //     .getcharacters()
 //     .then(characters => {
 //       res.render('admin/characters', {
-//         prods: characters,
+//         chars: characters,
 //         pageTitle: 'Admin characters',
 //         path: '/admin/characters'
 //       });
@@ -89,8 +89,8 @@ exports.postAddCharacter = (req, res, next) => {
 // };
 
 // exports.postDeletecharacter = (req, res, next) => {
-//   const prodId = req.body.characterId;
-//   character.findById(prodId)
+//   const charId = req.body.characterId;
+//   character.findById(charId)
 //     .then(character => {
 //       return character.destroy();
 //     })

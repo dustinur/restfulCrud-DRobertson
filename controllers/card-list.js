@@ -4,7 +4,7 @@ exports.getCharacters = (req, res, next) => {
   Character.findAll()
     .then(characters => {
       res.render('card-list/character-list', {
-        prods: characters,
+        chars: characters,
         pageTitle: 'All Characters',
         path: '/characters'
       });
@@ -15,8 +15,8 @@ exports.getCharacters = (req, res, next) => {
 };
 
 exports.getCharacter = (req, res, next) => {
-  const prodId = req.params.characterId;
-  // Character.findAll({ where: { id: prodId } })
+  const charId = req.params.characterId;
+  // Character.findAll({ where: { id: charId } })
   //   .then(characters => {
   //     res.render('card-list/character-detail', {
   //       character: characters[0],
@@ -25,7 +25,7 @@ exports.getCharacter = (req, res, next) => {
   //     });
   //   })
   //   .catch(err => console.log(err));
-  Character.findById(prodId)
+  Character.findById(charId)
     .then(character => {
       res.render('card-list/character-detail', {
         character: character,
@@ -40,7 +40,7 @@ exports.getIndex = (req, res, next) => {
   Character.findAll()
     .then(characters => {
       res.render('card-list/index', {
-        prods: characters,
+        chars: characters,
         pageTitle: 'Cards',
         path: '/'
       });
@@ -69,14 +69,14 @@ exports.getCart = (req, res, next) => {
 };
 
 exports.postCart = (req, res, next) => {
-  const prodId = req.body.characterId;
+  const charId = req.body.characterId;
   let fetchedCart;
   let newQuantity = 1;
   req.user
     .getCart()
     .then(cart => {
       fetchedCart = cart;
-      return cart.getCharacters({ where: { id: prodId } });
+      return cart.getCharacters({ where: { id: charId } });
     })
     .then(characters => {
       let character;
@@ -89,7 +89,7 @@ exports.postCart = (req, res, next) => {
         newQuantity = oldQuantity + 1;
         return character;
       }
-      return Character.findById(prodId);
+      return Character.findById(charId);
     })
     .then(character => {
       return fetchedCart.addCharacter(character, {
@@ -103,11 +103,11 @@ exports.postCart = (req, res, next) => {
 };
 
 exports.postCartDeleteCharacter = (req, res, next) => {
-  const prodId = req.body.characterId;
+  const charId = req.body.characterId;
   req.user
     .getCart()
     .then(cart => {
-      return cart.getCharacters({ where: { id: prodId } });
+      return cart.getCharacters({ where: { id: charId } });
     })
     .then(characters => {
       const character = characters[0];
