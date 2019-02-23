@@ -10,10 +10,25 @@ class Character {
 
   save() {
     const db = getDb();
-    return db.collection("characters")
+    return db
+      .collection("characters")
       .insertOne(this)
       .then(result => {
         console.log(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  static fetchAll() {
+    return db
+      .collection("characters")
+      .find()
+      .toArray()
+      .then(characters => {
+        console.log(characters);
+        return characters;
       })
       .catch(err => {
         console.log(err);

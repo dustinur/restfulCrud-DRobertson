@@ -9,11 +9,11 @@ exports.getAddCharacter = (req, res, next) => {
 };
 
 exports.postAddCharacter = (req, res, next) => {
-  const title = req.body.title;
+  const name = req.body.name;
   const imageUrl = req.body.imageUrl;
-  const price = req.body.price;
+  const classType = req.body.classType;
   const description = req.body.description;
-  const character = new character(name, classType, description, imageUrl);
+  const character = new Character(name, classType, description, imageUrl);
   character
     .save()
     .then(result => {
@@ -53,13 +53,13 @@ exports.postAddCharacter = (req, res, next) => {
 // exports.postEditCharacter = (req, res, next) => {
 //   const charId = req.body.characterId;
 //   const updatedTitle = req.body.title;
-//   const updatedPrice = req.body.price;
+//   const updatedPrice = req.body.classType;
 //   const updatedImageUrl = req.body.imageUrl;
 //   const updatedDesc = req.body.description;
 //   character.findById(charId)
 //     .then(character => {
 //       character.title = updatedTitle;
-//       character.price = updatedPrice;
+//       character.classType = updatedPrice;
 //       character.description = updatedDesc;
 //       character.imageUrl = updatedImageUrl;
 //       return character.save();
