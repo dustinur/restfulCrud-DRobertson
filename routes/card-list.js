@@ -10,16 +10,16 @@ router.get('/', cardListController.getIndex);
 
 router.get('/characters', cardListController.getCharacters);
 
-router.get('/characters/:characterId', cardListController.getCharacter);
+// router.get('/characters/:characterId', cardListController.getCharacter);
 
-router.get('/cart', cardListController.getCart);
+// router.get('/cart', cardListController.getCart);
 
-router.post('/cart', cardListController.postCart);
+// router.post('/cart', cardListController.postCart);
 
-router.post('/cart-delete-item', cardListController.postCartDeleteCharacter);
+// router.post('/cart-delete-item', cardListController.postCartDeleteCharacter);
 
-router.post('/create-order', cardListController.postOrder);
+// router.post('/create-order', cardListController.postOrder);
 
-router.get('/orders', cardListController.getOrders);
+// router.get('/orders', cardListController.getOrders);
 
 module.exports = router;

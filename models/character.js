@@ -22,6 +22,7 @@ class Character {
   }
 
   static fetchAll() {
+    const db = getDb();
     return db
       .collection("characters")
       .find()

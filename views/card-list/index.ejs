@@ -6,9 +6,9 @@
     <%- include('../includes/navigation.ejs') %>
 
     <main>
-        <% if (prods.length > 0) { %>
+        <% if (chars.length > 0) { %>
             <div class="grid">
-                <% for (let character of prods) { %>
+                <% for (let character of chars) { %>
                     <article class="card character-item">
                         <header class="card__header">
                             <h1 class="character__name"><%= character.name %></h1>
@@ -18,7 +18,7 @@
                                 alt="<%= character.name %>">
                         </div>
                         <div class="card__content">
-                            <h2 class="character__classType">$<%= character.classType %></h2>
+                            <h2 class="character__classType"><%= character.classType %></h2>
                             <p class="character__description"><%= character.description %></p>
                         </div>
                         <div class="card__actions">

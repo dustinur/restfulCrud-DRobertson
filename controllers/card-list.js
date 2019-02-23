@@ -1,7 +1,7 @@
 const Character = require('../models/character');
 
 exports.getCharacters = (req, res, next) => {
-  Character.findAll()
+  Character.fetchAll()
     .then(characters => {
       res.render('card-list/character-list', {
         chars: characters,
@@ -37,7 +37,7 @@ exports.getCharacter = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-  Character.findAll()
+  Character.fetchAll()
     .then(characters => {
       res.render('card-list/index', {
         chars: characters,
