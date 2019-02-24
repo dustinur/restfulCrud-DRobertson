@@ -10,12 +10,12 @@ const router = express.Router();
 router.get('/add-character', adminController.getAddCharacter);
 
 // /admin/characters => GET
-// router.get('/characters', adminController.getCharacters);
+router.get('/characters', adminController.getCharacters);
 
 // /admin/add-character => POST
 router.post('/add-character', adminController.postAddCharacter);
 
-// router.get('/edit-character/:characterId', adminController.getEditCharacter);
+router.get('/edit-character/:characterId', adminController.getEditCharacter);
 
 // router.post('/edit-character', adminController.postEditCharacter);
 
