@@ -29,17 +29,17 @@ exports.postAddCharacter = (req, res, next) => {
 exports.getEditCharacter = (req, res, next) => {
   const editMode = req.query.edit;
   if (!editMode) {
-    return res.redirect('/');
+    return res.redirect("/");
   }
   const charId = req.params.characterId;
   Character.findById(charId)
     .then(character => {
       if (!character) {
-        return res.redirect('/');
+        return res.redirect("/");
       }
-      res.render('admin/edit-character', {
-        pageTitle: 'Edit character',
-        path: '/admin/edit-character',
+      res.render("admin/edit-character", {
+        pageTitle: "Edit character",
+        path: "/admin/edit-character",
         editing: editMode,
         character: character
       });
@@ -49,21 +49,22 @@ exports.getEditCharacter = (req, res, next) => {
 
 exports.postEditCharacter = (req, res, next) => {
   const charId = req.body.characterId;
-  const updatedTitle = req.body.title;
-  const updatedPrice = req.body.classType;
+  const updatedName = req.body.name;
+  const updatedClassType = req.body.classType;
   const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
-  Character.findById(charId)
-    .then(character => {
-      character.title = updatedTitle;
-      character.classType = updatedPrice;
-      character.description = updatedDesc;
-      character.imageUrl = updatedImageUrl;
-      return character.save();
-    })
+  const character = new Character(
+    updatedName,
+    updatedClassType,
+    updatedDesc,
+    updatedImageUrl,
+    charId
+  );
+  character
+    .save()
     .then(result => {
-      console.log('UPDATED character!');
-      res.redirect('/admin/characters');
+      console.log("UPDATED character!");
+      res.redirect("/admin/characters");
     })
     .catch(err => console.log(err));
 };
@@ -71,24 +72,21 @@ exports.postEditCharacter = (req, res, next) => {
 exports.getCharacters = (req, res, next) => {
   Character.fetchAll()
     .then(characters => {
-      res.render('admin/characters', {
+      res.render("admin/characters", {
         chars: characters,
-        pageTitle: 'Admin characters',
-        path: '/admin/characters'
+        pageTitle: "Admin characters",
+        path: "/admin/characters"
       });
     })
     .catch(err => console.log(err));
 };
 
-// exports.postDeletecharacter = (req, res, next) => {
-//   const charId = req.body.characterId;
-//   character.findById(charId)
-//     .then(character => {
-//       return character.destroy();
-//     })
-//     .then(result => {
-//       console.log('DESTROYED character');
-//       res.redirect('/admin/characters');
-//     })
-//     .catch(err => console.log(err));
-// };
+exports.postDeleteCharacter = (req, res, next) => {
+  const charId = req.body.characterId;
+  Character.deleteById(charId)
+    .then(() => {
+      console.log("Destroyed Character");
+      res.redirect("/admin/characters");
+    })
+    .catch(err => console.log(err));
+};

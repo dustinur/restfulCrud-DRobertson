@@ -7,7 +7,7 @@ class Character {
     this.classType = classType;
     this.description = description;
     this.imageUrl = imageUrl;
-    this._id = id;
+    this._id = id ? new mongodb.ObjectID(id) : null;
   }
 
   save() {
@@ -16,14 +16,11 @@ class Character {
     if (this._id) {
       dbOp = db
         .collection("characters")
-        .updateOne({ _id: new mongodb.ObjectID(this._id) }, { $set: this });
+        .updateOne({ _id: this._id }, { $set: this });
     } else {
       dbOp = db.collection("characters").insertOne(this);
     }
-    const db = getDb();
-    return db
-      .collection("characters")
-      .insertOne(this)
+    return dbOp
       .then(result => {
         console.log(result);
       })
@@ -56,6 +53,19 @@ class Character {
       .then(character => {
         console.log(character);
         return character;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  static deleteById(prodId) {
+    const db = getDb();
+    return db
+      .collection("characters")
+      .deleteOne({ _id: new mongodb.ObjectID(prodId) })
+      .then(result => {
+        console.log("Deleted");
       })
       .catch(err => {
         console.log(err);

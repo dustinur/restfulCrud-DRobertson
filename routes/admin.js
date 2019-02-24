@@ -17,8 +17,8 @@ router.post('/add-character', adminController.postAddCharacter);
 
 router.get('/edit-character/:characterId', adminController.getEditCharacter);
 
-// router.post('/edit-character', adminController.postEditCharacter);
+router.post('/edit-character', adminController.postEditCharacter);
 
-// router.post('/delete-character', adminController.postDeleteCharacter);
+router.post('/delete-character', adminController.postDeleteCharacter);
 
 module.exports = router;
