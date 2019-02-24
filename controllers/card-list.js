@@ -1,12 +1,12 @@
-const Character = require('../models/character');
+const Character = require("../models/character");
 
 exports.getCharacters = (req, res, next) => {
   Character.fetchAll()
     .then(characters => {
-      res.render('card-list/character-list', {
+      res.render("card-list/character-list", {
         chars: characters,
-        pageTitle: 'All Characters',
-        path: '/characters'
+        pageTitle: "All Characters",
+        path: "/characters"
       });
     })
     .catch(err => {
@@ -27,10 +27,10 @@ exports.getCharacter = (req, res, next) => {
   //   .catch(err => console.log(err));
   Character.findById(charId)
     .then(character => {
-      res.render('card-list/character-detail', {
+      res.render("card-list/character-detail", {
         character: character,
         pageTitle: character.title,
-        path: '/characters'
+        path: "/characters"
       });
     })
     .catch(err => console.log(err));
@@ -39,10 +39,10 @@ exports.getCharacter = (req, res, next) => {
 exports.getIndex = (req, res, next) => {
   Character.fetchAll()
     .then(characters => {
-      res.render('card-list/index', {
+      res.render("card-list/index", {
         chars: characters,
-        pageTitle: 'Cards',
-        path: '/'
+        pageTitle: "Cards",
+        path: "/"
       });
     })
     .catch(err => {
@@ -53,53 +53,57 @@ exports.getIndex = (req, res, next) => {
 exports.getCart = (req, res, next) => {
   req.user
     .getCart()
-    .then(cart => {
-      return cart
-        .getCharacters()
-        .then(characters => {
-          res.render('card-list/cart', {
-            path: '/cart',
-            pageTitle: 'Your Cart',
-            characters: characters
-          });
-        })
-        .catch(err => console.log(err));
+    .then(characters => {
+      res.render("card-list/cart", {
+        path: "/cart",
+        pageTitle: "Your Cart",
+        characters: characters
+      });
     })
     .catch(err => console.log(err));
 };
 
 exports.postCart = (req, res, next) => {
   const charId = req.body.characterId;
-  let fetchedCart;
-  let newQuantity = 1;
-  req.user
-    .getCart()
-    .then(cart => {
-      fetchedCart = cart;
-      return cart.getCharacters({ where: { id: charId } });
-    })
-    .then(characters => {
-      let character;
-      if (characters.length > 0) {
-        character = characters[0];
-      }
-
-      if (character) {
-        const oldQuantity = character.cartItem.quantity;
-        newQuantity = oldQuantity + 1;
-        return character;
-      }
-      return Character.findById(charId);
-    })
+  Character.findById(charId)
     .then(character => {
-      return fetchedCart.addCharacter(character, {
-        through: { quantity: newQuantity }
-      });
+      return req.user.addToCart(character);
     })
-    .then(() => {
-      res.redirect('/cart');
-    })
-    .catch(err => console.log(err));
+    .then(result => {
+      console.log(result);
+      res.redirect("cart");
+    });
+
+  // let fetchedCart;
+  // let newQuantity = 1;
+  // req.user
+  //   .getCart()
+  //   .then(cart => {
+  //     fetchedCart = cart;
+  //     return cart.getCharacters({ where: { id: charId } });
+  //   })
+  //   .then(characters => {
+  //     let character;
+  //     if (characters.length > 0) {
+  //       character = characters[0];
+  //     }
+
+  //     if (character) {
+  //       const oldQuantity = character.cartItem.quantity;
+  //       newQuantity = oldQuantity + 1;
+  //       return character;
+  //     }
+  //     return Character.findById(charId);
+  //   })
+  //   .then(character => {
+  //     return fetchedCart.addCharacter(character, {
+  //       through: { quantity: newQuantity }
+  //     });
+  //   })
+  //   .then(() => {
+  //     res.redirect('/cart');
+  //   })
+  //   .catch(err => console.log(err));
 };
 
 exports.postCartDeleteCharacter = (req, res, next) => {
@@ -114,7 +118,7 @@ exports.postCartDeleteCharacter = (req, res, next) => {
       return character.cartItem.destroy();
     })
     .then(result => {
-      res.redirect('/cart');
+      res.redirect("/cart");
     })
     .catch(err => console.log(err));
 };
@@ -144,18 +148,18 @@ exports.postOrder = (req, res, next) => {
       return fetchedCart.setCharacters(null);
     })
     .then(result => {
-      res.redirect('/orders');
+      res.redirect("/orders");
     })
     .catch(err => console.log(err));
 };
 
 exports.getOrders = (req, res, next) => {
   req.user
-    .getOrders({include: ['characters']})
+    .getOrders({ include: ["characters"] })
     .then(orders => {
-      res.render('card-list/orders', {
-        path: '/orders',
-        pageTitle: 'Your Orders',
+      res.render("card-list/orders", {
+        path: "/orders",
+        pageTitle: "Your Orders",
         orders: orders
       });
     })

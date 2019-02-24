@@ -12,9 +12,9 @@ router.get('/characters', cardListController.getCharacters);
 
 router.get('/characters/:characterId', cardListController.getCharacter);
 
-// router.get('/cart', cardListController.getCart);
+router.get('/cart', cardListController.getCart);
 
-// router.post('/cart', cardListController.postCart);
+router.post('/cart', cardListController.postCart);
 
 // router.post('/cart-delete-item', cardListController.postCartDeleteCharacter);
 

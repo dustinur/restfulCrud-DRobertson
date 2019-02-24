@@ -7,12 +7,12 @@
         <main>
             <% if (characters.length > 0) { %>
                 <ul class="cart__item-list">
-                    <% characters.forEach(p => { %>
+                    <% characters.forEach(c => { %>
                         <li class="cart__item">
-                            <h1><%= p.name %></h1>
-                            <h2>Quantity: <%= p.cartItem.quantity %></h2>
+                            <h1><%= c.name %></h1>
+                            <h2>Quantity: <%= c.quantity %></h2>
                             <form action="/cart-delete-item" method="POST">
-                                <input type="hidden" value="<%= p.id %>" name="characterId">
+                                <input type="hidden" value="<%= c._id %>" name="characterId">
                                 <button class="btn danger" type="submit">Delete</button>
                             </form>
                         </li>

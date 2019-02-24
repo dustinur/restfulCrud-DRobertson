@@ -13,7 +13,14 @@ exports.postAddCharacter = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const classType = req.body.classType;
   const description = req.body.description;
-  const character = new Character(name, classType, description, imageUrl);
+  const character = new Character(
+    name,
+    classType,
+    description,
+    imageUrl,
+    null,
+    req.user._id
+  );
   character
     .save()
     .then(result => {
