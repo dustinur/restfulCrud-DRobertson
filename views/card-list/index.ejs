@@ -22,7 +22,7 @@
                             <p class="character__description"><%= character.description %></p>
                         </div>
                         <div class="card__actions">
-                                <a href="/characters/<%= character.id %>" class="btn">Details</a>
+                                <a href="/characters/<%= character._id %>" class="btn">Details</a>
                             <%- include('../includes/add-to-cart.ejs', {character: character}) %>
                         </div>
                     </article>

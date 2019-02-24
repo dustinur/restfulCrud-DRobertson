@@ -10,7 +10,7 @@ router.get('/', cardListController.getIndex);
 
 router.get('/characters', cardListController.getCharacters);
 
-// router.get('/characters/:characterId', cardListController.getCharacter);
+router.get('/characters/:characterId', cardListController.getCharacter);
 
 // router.get('/cart', cardListController.getCart);
 
