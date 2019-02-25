@@ -1,25 +1,27 @@
 {
-  "name": "restfulcrud-drobertson",
+  "name": "nodejs-complete-guide",
   "version": "1.0.0",
-  "description": "DGM 4790 - RESTful CRUD Node Server",
-  "main": "index.js",
+  "description": "Complete Node.js Guide",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dustinur/restfulCrud-DRobertson.git"
-  },
-  "author": "Dustin Robertson",
+  "author": "Maximilian Schwarzmüller",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dustinur/restfulCrud-DRobertson/issues"
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   },
-  "homepage": "https://github.com/dustinur/restfulCrud-DRobertson#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.4.15"
+    "express-handlebars": "^3.0.0",
+    "heroku": "^7.22.0",
+    "mongodb": "^3.1.13",
+    "mysql2": "^1.6.1",
+    "pug": "^2.0.3",
+    "sequelize": "^5.0.0-beta.11"
   }
 }
