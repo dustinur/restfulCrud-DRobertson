@@ -1,37 +1,14 @@
-const path = require('path');
+// app.js
+const express = require("express");
+const bodyParser = require("body-parser");
 
-const express = require('express');
-const bodyParser = require('body-parser');
-
-const errorController = require('./controllers/error');
-const mongoConnect = require('./util/database').mongoConnect;
-const User = require('./models/user');
-
+const character = require('./routes/character.route'); // Imports routes for the characters
 const app = express();
+app.use('/characters', character);
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
 
-const adminRoutes = require('./routes/admin');
-const cardListRoutes = require('./routes/card-list');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use((req, res, next) => {
-  User.findById('5c72258dbcfe7a254ce014fe')
-    .then(user => {
-      req.user = new User(user.name, user.email, user.cart, user._id);
-      next();
-    })
-    .catch(err => console.log(err));
+let port = 3200;
+app.listen(port, () => {
+  console.log("Server is running at port# " + port);
 });
-
-app.use('/admin', adminRoutes);
-app.use(cardListRoutes);
-
-app.use(errorController.get404);
-
-mongoConnect(() => {
-  app.listen(3000);
-})
