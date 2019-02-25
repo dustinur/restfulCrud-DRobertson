@@ -28,7 +28,8 @@ All CRUD operations done in Postman
 
 ### Create
 
-Choose x-www-form-urlencoded in the Body tab in Postman and send a POST request to the following url ‘localhost:3200/characters/create’.
+- Choose x-www-form-urlencoded in the Body tab in Postman.
+- Send a POST request to the following url ‘localhost:3200/characters/create’.
 
 ### Read
 
