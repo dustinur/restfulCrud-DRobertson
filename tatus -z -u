@@ -1,0 +1,96 @@
+[33mcommit b68ae541d16011da4bd5400a3a641b08c7190692[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sun Feb 24 23:01:20 2019 -0700
+
+    Added heroku
+
+[33mcommit 7cf4a149d96d4fc62d11e5031dce1a6ac50660af[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sun Feb 24 21:19:34 2019 -0700
+
+    crud complete
+
+[33mcommit 9151664b42a83de7adadcb1cad0049d58f6dadd7[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sun Feb 24 18:54:53 2019 -0700
+
+    transition to mongoose
+
+[33mcommit 37ad6bdbce1ff2baebe0598a714de8a5ccbb808b[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sun Feb 24 15:49:12 2019 -0700
+
+    added cart
+
+[33mcommit 1b68e64eb57294cbd2f29bb66c69746820dd3e2f[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sat Feb 23 21:16:44 2019 -0700
+
+    add delete / fixed add character
+
+[33mcommit df04a3ab53066a8d2ccb94e78bd6ec1f7d1d4db5[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sat Feb 23 18:46:04 2019 -0700
+
+    added edit character
+
+[33mcommit 7e40b5d9936d282e5eb9abefa68f0f50293e0daa[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sat Feb 23 17:35:35 2019 -0700
+
+    edit character routes
+
+[33mcommit 66d7cc567fcb7de9689f18242126663a2db2ad62[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Sat Feb 23 14:37:25 2019 -0700
+
+    Added fetchAll for home
+
+[33mcommit da4776fec3e11e3a5f93cdd6f6065040c1d7da17[m
+Author: dustinur <dustinuriah@gmail.com>
+Date:   Fri Feb 22 19:29:33 2019 -0700
+
+    added db card-list
+
+[33mcommit bc4192c8e24ca8b987b4183ed34518b342c160c1[m
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 14:45:24 2019 -0700
+
+    added character form
+
+[33mcommit 228f2e8c7741d3943dd5cd26ca00e5634ff48487[m
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 14:14:28 2019 -0700
+
+    added char routes
+
+[33mcommit 8635350d380b03d8530c68d7c27c84eb5f0bb5c9[m
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 14:03:53 2019 -0700
+
+    added character model
+
+[33mcommit 67aed70830a83c10a484b9f7d5b3ce03e17e8d82[m
+Merge: ef8a952 f3026b7
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 12:54:19 2019 -0700
+
+    Merge branch 'master' of https://github.com/dustinur/restfulCrud-DRobertson
+
+[33mcommit f3026b741f6de60a42c3cf991c6420a6cb0d8052[m
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 12:53:18 2019 -0700
+
+    Delete README.md
+
+[33mcommit a3ba33a16443cba0605e883361e5427e6b4a4f1d[m
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 12:49:38 2019 -0700
+
+    Initial commit
+
+[33mcommit ef8a952cd8d0055f95b2277fb756dedff6ecce4c[m
+Author: DRobertson <dustinuriah@gmail.com>
+Date:   Fri Feb 22 12:48:10 2019 -0700
+
+    First commit
