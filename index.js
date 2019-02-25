@@ -12,7 +12,6 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const character = require("./routes/character.route"); // Imports routes for the characters
 const app = express();
 
