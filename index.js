@@ -1,14 +1,8 @@
 // localhost:3200/characters/test
-
-// localhost:3200/characters/create
-//  Choose x-www-form-urlencoded in the Body tab in Postman
-
+// localhost:3200/characters/create ----- Choose 'x-www-form-urlencoded' in the Body tab in Postman
 // localhost:3200/characters/PRODUCT_ID
-
 // localhost:3200/characters/PRODUCT_ID/update
-
 // localhost:3200/characters/PRODUCT_ID/delete
-// app.js
 
 const express = require("express");
 const bodyParser = require("body-parser");
