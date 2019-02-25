@@ -32,8 +32,8 @@ Choose x-www-form-urlencoded in the Body tab in Postman and send a POST request 
 
 ### Read
 
-Send a GET request to url ‘localhost:3200/characters/’ to find all existing characters.
-Send a GET request to url ‘localhost:3200/characters/CHARACTER_ID’ to find a specific character, switching CHARACTER_ID with chosen character :id.
+- Send a GET request to url ‘localhost:3200/characters/’ to find all existing characters.
+- Send a GET request to url ‘localhost:3200/characters/CHARACTER_ID’ to find a specific character, switching CHARACTER_ID with chosen character :id.
 
 ### Update
 
