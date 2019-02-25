@@ -1,37 +1,29 @@
-const path = require('path');
+// localhost:3200/characters/test
+// localhost:3200/characters/create
+// app.js
 
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 
-const errorController = require('./controllers/error');
-const mongoConnect = require('./util/database').mongoConnect;
-const User = require('./models/user');
-
+const character = require("./routes/character.route"); // Imports routes for the characters
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+// Set up mongoose connection
+const mongoose = require("mongoose");
+let dev_db_url =
+  "mongodb+srv://dustin:13251325@cluster0-dchnu.mongodb.net/cards?retryWrites=true";
+let mongoDB = process.env.MONGODB_URI || dev_db_url;
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-const adminRoutes = require('./routes/admin');
-const cardListRoutes = require('./routes/card-list');
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/characters", character);
 
-app.use((req, res, next) => {
-  User.findById('5c72258dbcfe7a254ce014fe')
-    .then(user => {
-      req.user = new User(user.name, user.email, user.cart, user._id);
-      next();
-    })
-    .catch(err => console.log(err));
+let port = 3200;
+
+app.listen(port, () => {
+  console.log("Server is running at port# " + port);
 });
-
-app.use('/admin', adminRoutes);
-app.use(cardListRoutes);
-
-app.use(errorController.get404);
-
-mongoConnect(() => {
-  app.listen(3000);
-})
