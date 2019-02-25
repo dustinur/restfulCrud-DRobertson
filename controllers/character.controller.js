@@ -5,6 +5,13 @@ exports.test = function(req, res) {
   res.send("This is the test controller!");
 };
 
+exports.character_all = function (req, res) {
+  Character.find(req.params.id, function (err, character) {
+      if (err) return next(err);
+      res.send(character);
+  })
+};
+
 exports.character_create = function(req, res) {
   let character = new Character({
     name: req.body.name,

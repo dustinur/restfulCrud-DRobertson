@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 let CharacterSchema = new Schema({
     name: { type: String, required: true, max: 100 },
     classType: { type: String, required: true, max: 100 },
-    imageUrl: { type: String, required: true, max: 100 },
-    description: { type: String, required: true, max: 100 },
+    imageUrl: { type: String, required: true },
+    description: { type: String, required: true },
 });
 
 
