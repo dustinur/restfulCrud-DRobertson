@@ -5,11 +5,11 @@ exports.test = function(req, res) {
   res.send("This is the test controller!");
 };
 
-exports.character_all = function (req, res) {
-  Character.find(req.params.id, function (err, character) {
-      if (err) return next(err);
-      res.send(character);
-  })
+exports.character_all = function(req, res) {
+  Character.find(req.params.id, function(err, character) {
+    if (err) return next(err);
+    res.send(character);
+  });
 };
 
 exports.character_create = function(req, res) {
@@ -28,23 +28,26 @@ exports.character_create = function(req, res) {
   });
 };
 
-exports.character_details = function (req, res) {
-    Character.findById(req.params.id, function (err, character) {
-        if (err) return next(err);
-        res.send(character);
-    })
+exports.character_details = function(req, res) {
+  Character.findById(req.params.id, function(err, character) {
+    if (err) return next(err);
+    res.send(character);
+  });
 };
 
-exports.character_update = function (req, res) {
-    Character.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, character) {
-        if (err) return next(err);
-        res.send('Character udpated.');
-    });
+exports.character_update = function(req, res) {
+  Character.findByIdAndUpdate(req.params.id, { $set: req.body }, function(
+    err,
+    character
+  ) {
+    if (err) return next(err);
+    res.send("Character udpated.");
+  });
 };
 
-exports.character_delete = function (req, res) {
-    Character.findByIdAndRemove(req.params.id, function (err) {
-        if (err) return next(err);
-        res.send('Character deleted successfully!');
-    })
+exports.character_delete = function(req, res) {
+  Character.findByIdAndRemove(req.params.id, function(err) {
+    if (err) return next(err);
+    res.send("Character deleted successfully!");
+  });
 };

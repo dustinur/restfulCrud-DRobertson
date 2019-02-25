@@ -27,6 +27,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.send("<h1>Welcome to the Witcher Character API</h1>");
+});
+
+app.get("*", (req, res) => {
+  res.redirect("/");
+});
+
 const port = process.env.PORT || 3200;
 
 app.listen(port, () => {
