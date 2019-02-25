@@ -37,8 +37,8 @@ Choose x-www-form-urlencoded in the Body tab in Postman and send a POST request 
 
 ### Update
 
-Send a UPDATE request to url ‘localhost:3200/characters/CHARACTER_ID/update’ to update a specific character's attributes by id.
+- Send a UPDATE request to url ‘localhost:3200/characters/CHARACTER_ID/update’ to update a specific character's attributes by id.
 
 ### Delete
 
-Send a Delete request to url ‘localhost:3200/characters/CHARACTER_ID/delete’ to delete a specific character by id.
+- Send a Delete request to url ‘localhost:3200/characters/CHARACTER_ID/delete’ to delete a specific character by id.
