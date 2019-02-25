@@ -38,7 +38,7 @@ All CRUD operations done in Postman
 
 ### Update
 
-- Send a UPDATE request to url ‘localhost:3200/characters/CHARACTER_ID/update’ to update a specific character's attributes by id.
+- Send an UPDATE request to url ‘localhost:3200/characters/CHARACTER_ID/update’ to update a specific character's attributes by id.
 
 ### Delete
 
