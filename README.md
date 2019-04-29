@@ -18,7 +18,7 @@ In terminal, while in project directory and run:
 npm install
 ```
 
-Start server on default port 3200:
+Start server on default port 4402:
 
 ```
 npm start
@@ -29,17 +29,17 @@ All CRUD operations done in Postman
 ### Create
 
 - Choose x-www-form-urlencoded in the Body tab in Postman.
-- Send a POST request to the following url ‘localhost:3200/characters/create’.
+- Send a POST request to the following url ‘localhost:4402/characters/create’.
 
 ### Read
 
-- Send a GET request to url ‘localhost:3200/characters/’ to find all existing characters.
-- Send a GET request to url ‘localhost:3200/characters/CHARACTER_ID’ to find a specific character, switching CHARACTER_ID with chosen character :id.
+- Send a GET request to url ‘localhost:4402/characters/’ to find all existing characters.
+- Send a GET request to url ‘localhost:4402/characters/CHARACTER_ID’ to find a specific character, switching CHARACTER_ID with chosen character :id.
 
 ### Update
 
-- Send an UPDATE request to url ‘localhost:3200/characters/CHARACTER_ID/update’ to update a specific character's attributes by id.
+- Send an POST request to url ‘localhost:4402/characters/CHARACTER_ID/update’ to update a specific character's attributes by id.
 
 ### Delete
 
-- Send a Delete request to url ‘localhost:3200/characters/CHARACTER_ID/delete’ to delete a specific character by id.
+- Send a Delete request to url ‘localhost:4402/characters/CHARACTER_ID/delete’ to delete a specific character by id.
